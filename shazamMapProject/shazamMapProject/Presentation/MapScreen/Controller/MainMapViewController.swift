@@ -19,7 +19,13 @@ final class MainMapViewController: UIViewController {
     private let model = MainMapModel()
     private let locationService = ServiceLayer.locationService
     
-    private var initialLocation: CLLocation?
+    private var currentLocation: CLLocation? {
+        didSet {
+            searchInMap()
+        }
+    }
+    
+    
     private let searchRadius: CLLocationDistance = 2000
     
     // MARK: - UIViewController
@@ -34,9 +40,8 @@ final class MainMapViewController: UIViewController {
     private func getUserLocation() {
         locationService.run { [weak self] localLocation in
             guard let self = self else { return }
-            self.initialLocation = localLocation
+            self.currentLocation = localLocation
             self.setupMap()
-            self.searchInMap()
         }
     }
     
@@ -44,7 +49,7 @@ final class MainMapViewController: UIViewController {
         mapView.delegate = self
         
         let coordinateRegion = MKCoordinateRegion.init(
-            center: initialLocation!.coordinate,
+            center: currentLocation!.coordinate,
             latitudinalMeters: searchRadius * 2.0,
             longitudinalMeters: searchRadius * 2.0
         )
@@ -53,7 +58,7 @@ final class MainMapViewController: UIViewController {
     }
     
     private func searchInMap() {
-        model.searchBars(in: initialLocation!) { [weak self] result in
+        model.searchBars(in: currentLocation!) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let response):
@@ -80,4 +85,17 @@ final class MainMapViewController: UIViewController {
 
 // MARK: - MKMapViewDelegate
 
-extension MainMapViewController: MKMapViewDelegate {}
+extension MainMapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        currentLocation = CLLocation(
+            latitude: mapView.centerCoordinate.latitude,
+            longitude: mapView.centerCoordinate.longitude
+        )
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "something")
+        annotationView.markerTintColor = .green
+        return annotationView
+    }
+}

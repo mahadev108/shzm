@@ -54,16 +54,15 @@ final class TestView: UIView {
 }
 
 final class BottomInfoScreenViewController: UIViewController {
-//
-//    let testView = TestView()
-//    
-//    override func loadView() {
-//        view = testView
-//    }
-//    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        view.backgroundColor = .backgroundColor
-//    }
-
+    
+    let testView = TestView()
+    
+    override func loadView() {
+        view = testView
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .backgroundColor
+    }
 }

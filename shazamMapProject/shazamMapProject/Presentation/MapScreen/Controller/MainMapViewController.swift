@@ -25,7 +25,7 @@ final class MainMapViewController: UIViewController {
     
     private var currentLocation: CLLocation? = CLLocation(latitude: 0, longitude: 0) {
         didSet {
-//            searchInMap()
+            searchInMap()
         }
     }
     
@@ -97,20 +97,20 @@ final class MainMapViewController: UIViewController {
             print(title)
         }
     }
-
-
+    
+    
     func startShazamming() {
         guard !shazamService.isRecording else {
             shazamService.cancelDetection()
             return
         }
-
+        
         shazamService.detect { [weak self] result in
             print(result)
         }
-
+        
     }
-
+    
     // MARK: - Private Methods
     
     private func getUserLocation() {
@@ -134,29 +134,29 @@ final class MainMapViewController: UIViewController {
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
-//    private func searchInMap() {
-//        model.searchBars(in: currentLocation!) { [weak self] result in
-//            guard let self = self else { return }
-//            switch result {
-//            case .success(let response):
-//                for item in response!.mapItems {
-//                    let coordinate = item.placemark.location!.coordinate
-//                    //                    self.addPinToMapView(title: item.name, location: coordinate)
-//                }
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
-//    }
+    private func searchInMap() {
+        model.searchBars(in: currentLocation!) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let response):
+                for item in response!.mapItems {
+                    let coordinate = item.placemark.location!.coordinate
+                    //                    self.addPinToMapView(title: item.name, location: coordinate)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
     
-    //    private func addPinToMapView(title: String?, location: CLLocationCoordinate2D) {
-    //        if let title = title {
-    //            let annotation = MKPointAnnotation()
-    //            annotation.coordinate = location
-    //            annotation.title = title
-    //            mapView.addAnnotation(annotation)
-    //        }
-    //    }
+    private func addPinToMapView(title: String?, location: CLLocationCoordinate2D) {
+        if let title = title {
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = location
+            annotation.title = title
+            mapView.addAnnotation(annotation)
+        }
+    }
 }
 
 // MARK: - MKMapViewDelegate

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61666C852710596400AD5CA8 /* ShazamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61666C842710596400AD5CA8 /* ShazamService.swift */; };
 		DAD8441527104E2D00B1FFB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD8441427104E2D00B1FFB9 /* AppDelegate.swift */; };
 		DAD8441727104E2D00B1FFB9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD8441627104E2D00B1FFB9 /* SceneDelegate.swift */; };
 		DAD8441927104E2D00B1FFB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD8441827104E2D00B1FFB9 /* ViewController.swift */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		61666C842710596400AD5CA8 /* ShazamService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamService.swift; sourceTree = "<group>"; };
 		DAD8441127104E2D00B1FFB9 /* shazamMapProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shazamMapProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD8441427104E2D00B1FFB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAD8441627104E2D00B1FFB9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +37,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		61666C832710584800AD5CA8 /* Shazam */ = {
+			isa = PBXGroup;
+			children = (
+				61666C842710596400AD5CA8 /* ShazamService.swift */,
+			);
+			path = Shazam;
+			sourceTree = "<group>";
+		};
 		DAD8440827104E2D00B1FFB9 = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +64,7 @@
 		DAD8441327104E2D00B1FFB9 /* shazamMapProject */ = {
 			isa = PBXGroup;
 			children = (
+				61666C832710584800AD5CA8 /* Shazam */,
 				DAD8442B27104EF700B1FFB9 /* Launch */,
 				DAD8442A27104E7300B1FFB9 /* MapScreen */,
 				DAD8442827104E4200B1FFB9 /* Sources */,
@@ -169,6 +180,7 @@
 				DAD8441927104E2D00B1FFB9 /* ViewController.swift in Sources */,
 				DAD8441527104E2D00B1FFB9 /* AppDelegate.swift in Sources */,
 				DAD8441727104E2D00B1FFB9 /* SceneDelegate.swift in Sources */,
+				61666C852710596400AD5CA8 /* ShazamService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

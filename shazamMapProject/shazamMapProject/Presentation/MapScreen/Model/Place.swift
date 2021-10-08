@@ -10,6 +10,7 @@ import CoreLocation
 
 struct Place {
     let title: String
-    let location: CLLocationCoordinate2D
     let genres: [Genre]
+    let worktime: String
+    let distance: String
 }

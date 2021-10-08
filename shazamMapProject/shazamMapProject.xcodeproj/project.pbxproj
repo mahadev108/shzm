@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		61666C852710596400AD5CA8 /* ShazamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61666C842710596400AD5CA8 /* ShazamService.swift */; };
+		61666C872710A97E00AD5CA8 /* ShazamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61666C862710A97D00AD5CA8 /* ShazamService.swift */; };
 		DAD8441527104E2D00B1FFB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD8441427104E2D00B1FFB9 /* AppDelegate.swift */; };
 		DAD8441727104E2D00B1FFB9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD8441627104E2D00B1FFB9 /* SceneDelegate.swift */; };
 		DAD8441E27104E3000B1FFB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAD8441D27104E3000B1FFB9 /* Assets.xcassets */; };
@@ -24,14 +24,10 @@
 		DAD8444D271084ED00B1FFB9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD8444C271084ED00B1FFB9 /* Colors.swift */; };
 		DAD8444F2710853300B1FFB9 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD8444E2710853300B1FFB9 /* UIColor+Extensions.swift */; };
 		DAD84451271088A600B1FFB9 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD84450271088A600B1FFB9 /* UIViewController+Extension.swift */; };
-		FD60FEC581516F209415B35A /* Pods_shazamMapProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DD11F78BDD6D5881F64163 /* Pods_shazamMapProject.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		61666C842710596400AD5CA8 /* ShazamService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamService.swift; sourceTree = "<group>"; };
-		1E35F2870E47E7C70A7443E6 /* Pods-shazamMapProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shazamMapProject.release.xcconfig"; path = "Target Support Files/Pods-shazamMapProject/Pods-shazamMapProject.release.xcconfig"; sourceTree = "<group>"; };
-		83A823040939844E6A35C2D4 /* Pods-shazamMapProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shazamMapProject.debug.xcconfig"; path = "Target Support Files/Pods-shazamMapProject/Pods-shazamMapProject.debug.xcconfig"; sourceTree = "<group>"; };
-		88DD11F78BDD6D5881F64163 /* Pods_shazamMapProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shazamMapProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		61666C862710A97D00AD5CA8 /* ShazamService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShazamService.swift; sourceTree = "<group>"; };
 		DAD8441127104E2D00B1FFB9 /* shazamMapProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shazamMapProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD8441427104E2D00B1FFB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAD8441627104E2D00B1FFB9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,35 +54,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAD844352710573600B1FFB9 /* MapKit.framework in Frameworks */,
-				FD60FEC581516F209415B35A /* Pods_shazamMapProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		61666C832710584800AD5CA8 /* Shazam */ = {
-			isa = PBXGroup;
-			children = (
-				61666C842710596400AD5CA8 /* ShazamService.swift */,
-			);
-			path = Shazam;
-		8257B45E2D768ADB3A663C7D /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				83A823040939844E6A35C2D4 /* Pods-shazamMapProject.debug.xcconfig */,
-				1E35F2870E47E7C70A7443E6 /* Pods-shazamMapProject.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		DAD8440827104E2D00B1FFB9 = {
 			isa = PBXGroup;
 			children = (
 				DAD8441327104E2D00B1FFB9 /* shazamMapProject */,
 				DAD8441227104E2D00B1FFB9 /* Products */,
 				DAD844332710573600B1FFB9 /* Frameworks */,
-				8257B45E2D768ADB3A663C7D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,7 +80,6 @@
 		DAD8441327104E2D00B1FFB9 /* shazamMapProject */ = {
 			isa = PBXGroup;
 			children = (
-				61666C832710584800AD5CA8 /* Shazam */,
 				DAD8442B27104EF700B1FFB9 /* Launch */,
 				DAD8443927105ECA00B1FFB9 /* Services */,
 				DAD8443827105EC100B1FFB9 /* Presentation */,
@@ -171,7 +149,6 @@
 			isa = PBXGroup;
 			children = (
 				DAD844342710573600B1FFB9 /* MapKit.framework */,
-				88DD11F78BDD6D5881F64163 /* Pods_shazamMapProject.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -188,6 +165,7 @@
 		DAD8443927105ECA00B1FFB9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				61666C862710A97D00AD5CA8 /* ShazamService.swift */,
 				DAD8443A27105EE300B1FFB9 /* LocationService.swift */,
 				DAD8443C27105FC100B1FFB9 /* ServiceLayer.swift */,
 			);
@@ -234,11 +212,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DAD8442527104E3000B1FFB9 /* Build configuration list for PBXNativeTarget "shazamMapProject" */;
 			buildPhases = (
-				281305FB2BA84BAE4A67D8AD /* [CP] Check Pods Manifest.lock */,
 				DAD8440D27104E2D00B1FFB9 /* Sources */,
 				DAD8440E27104E2D00B1FFB9 /* Frameworks */,
 				DAD8440F27104E2D00B1FFB9 /* Resources */,
-				04829E6914DE420212D03F1F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -297,45 +273,8 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		04829E6914DE420212D03F1F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-shazamMapProject/Pods-shazamMapProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-shazamMapProject/Pods-shazamMapProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-shazamMapProject/Pods-shazamMapProject-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		281305FB2BA84BAE4A67D8AD /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-shazamMapProject-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
+
+
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -346,6 +285,7 @@
 				DAD844312710557D00B1FFB9 /* MainMapViewController.swift in Sources */,
 				DAD84451271088A600B1FFB9 /* UIViewController+Extension.swift in Sources */,
 				DAD8444F2710853300B1FFB9 /* UIColor+Extensions.swift in Sources */,
+				61666C872710A97E00AD5CA8 /* ShazamService.swift in Sources */,
 				DAD8444D271084ED00B1FFB9 /* Colors.swift in Sources */,
 				DAD84446271072D100B1FFB9 /* BottomInfoScreenViewController.swift in Sources */,
 				DAD8444A27107D1500B1FFB9 /* MainMapView.swift in Sources */,
@@ -353,7 +293,6 @@
 				DAD8443727105AB100B1FFB9 /* MainMapModel.swift in Sources */,
 				DAD8441527104E2D00B1FFB9 /* AppDelegate.swift in Sources */,
 				DAD8441727104E2D00B1FFB9 /* SceneDelegate.swift in Sources */,
-				61666C852710596400AD5CA8 /* ShazamService.swift in Sources */,
 				DAD8443B27105EE300B1FFB9 /* LocationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,7 +429,6 @@
 		};
 		DAD8442627104E3000B1FFB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 83A823040939844E6A35C2D4 /* Pods-shazamMapProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -521,7 +459,6 @@
 		};
 		DAD8442727104E3000B1FFB9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E35F2870E47E7C70A7443E6 /* Pods-shazamMapProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

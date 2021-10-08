@@ -94,12 +94,12 @@ final class MainMapViewController: UIViewController {
         addChild(controller: bottomInfoViewVC, rootView: mainView.bottomInfoContainerView)
         shazamService.recordingStateChanged = { [weak self] isRecording in
             let title = isRecording ? "RECORDING" : "SHAZAM"
-            self?.shazamButton.setTitle(title, for: .normal)
+            print(title)
         }
     }
 
 
-    @IBAction func shazamButtonTapped(_ sender: Any) {
+    func startShazamming() {
         guard !shazamService.isRecording else {
             shazamService.cancelDetection()
             return

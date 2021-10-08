@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		61666C872710A97E00AD5CA8 /* ShazamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61666C862710A97D00AD5CA8 /* ShazamService.swift */; };
+		DA6418382710B2260066A486 /* ResultScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6418372710B2260066A486 /* ResultScreenView.swift */; };
+		DA64183C2710B23D0066A486 /* ResultScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA64183B2710B23D0066A486 /* ResultScreenVC.swift */; };
 		DAD8441527104E2D00B1FFB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD8441427104E2D00B1FFB9 /* AppDelegate.swift */; };
 		DAD8441727104E2D00B1FFB9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD8441627104E2D00B1FFB9 /* SceneDelegate.swift */; };
 		DAD8441E27104E3000B1FFB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAD8441D27104E3000B1FFB9 /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 
 /* Begin PBXFileReference section */
 		61666C862710A97D00AD5CA8 /* ShazamService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShazamService.swift; sourceTree = "<group>"; };
+		DA6418372710B2260066A486 /* ResultScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultScreenView.swift; sourceTree = "<group>"; };
+		DA64183B2710B23D0066A486 /* ResultScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultScreenVC.swift; sourceTree = "<group>"; };
 		DAD8441127104E2D00B1FFB9 /* shazamMapProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shazamMapProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD8441427104E2D00B1FFB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAD8441627104E2D00B1FFB9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +64,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA6418362710B1B60066A486 /* ResultScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DA6418392710B2290066A486 /* View */,
+				DA64183A2710B2300066A486 /* Controller */,
+			);
+			path = ResultScreen;
+			sourceTree = "<group>";
+		};
+		DA6418392710B2290066A486 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DA6418372710B2260066A486 /* ResultScreenView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DA64183A2710B2300066A486 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DA64183B2710B23D0066A486 /* ResultScreenVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		DAD8440827104E2D00B1FFB9 = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +185,7 @@
 		DAD8443827105EC100B1FFB9 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DA6418362710B1B60066A486 /* ResultScreen */,
 				DAD8442A27104E7300B1FFB9 /* MapScreen */,
 				DAD84443271072A500B1FFB9 /* BottomInfoScreen */,
 			);
@@ -272,11 +302,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-
-
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		DAD8440D27104E2D00B1FFB9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -289,9 +314,11 @@
 				DAD8444D271084ED00B1FFB9 /* Colors.swift in Sources */,
 				DAD84446271072D100B1FFB9 /* BottomInfoScreenViewController.swift in Sources */,
 				DAD8444A27107D1500B1FFB9 /* MainMapView.swift in Sources */,
+				DA64183C2710B23D0066A486 /* ResultScreenVC.swift in Sources */,
 				DAD8443D27105FC100B1FFB9 /* ServiceLayer.swift in Sources */,
 				DAD8443727105AB100B1FFB9 /* MainMapModel.swift in Sources */,
 				DAD8441527104E2D00B1FFB9 /* AppDelegate.swift in Sources */,
+				DA6418382710B2260066A486 /* ResultScreenView.swift in Sources */,
 				DAD8441727104E2D00B1FFB9 /* SceneDelegate.swift in Sources */,
 				DAD8443B27105EE300B1FFB9 /* LocationService.swift in Sources */,
 			);

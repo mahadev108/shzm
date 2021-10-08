@@ -9,10 +9,6 @@ import UIKit
 
 private final class TrackView: UIView {
     
-    override var intrinsicContentSize: CGSize {
-        CGSize(width: UIView.noIntrinsicMetric, height: 98)
-    }
-    
     let imageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "FoilSilver"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -32,6 +28,7 @@ private final class TrackView: UIView {
         let label = UILabel()
         label.text = "The Glitch Mob"
         label.font = UIFont(name: Fonts.pragmaticaExtended.rawValue, size: 16)
+        label.textColor = .black
         return label
     }()
     
@@ -39,11 +36,14 @@ private final class TrackView: UIView {
         let label = UILabel()
         label.text = "We can make the world stop"
         label.font = UIFont(name: Fonts.pragmaticaExtended.rawValue, size: 20)
+        label.textColor = .black
         return label
     }()
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
+        layer.zPosition = 0
+//        transform = CGAffineTransform(rotationAngle: -0.2)
         setupStackView()
     }
     
@@ -106,8 +106,6 @@ final class ResultScreenView: UIView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.alignment = .fill
-        stackView.distribution = .fill
         return stackView
     }()
     
@@ -134,6 +132,7 @@ final class ResultScreenView: UIView {
     
     private let trackView: TrackView = {
         let trackView = TrackView()
+        trackView.translatesAutoresizingMaskIntoConstraints = false
         return trackView
     }()
     
@@ -155,7 +154,6 @@ final class ResultScreenView: UIView {
     
     init() {
         super.init(frame: UIScreen.main.bounds)
-        setConstraints()
     }
     
     override func draw(_ rect: CGRect) {
@@ -167,9 +165,13 @@ final class ResultScreenView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setConstraints() {
+    func setConstraints(shazamMedia: ShazamMedia) {
+        setupShazamMedia(shazamMedia: shazamMedia)
+        setCustomSpacing()
         addSubview(contentScrollView)
         contentScrollView.addSubview(contentStackView)
+        
+        trackImageView.layer.zPosition = 2
         
         NSLayoutConstraint.activate([
             contentScrollView.topAnchor.constraint(equalTo: topAnchor),
@@ -186,6 +188,10 @@ final class ResultScreenView: UIView {
             contentStackView.bottomAnchor.constraint(equalTo: contentScrollView.bottomAnchor)
         ])
         
+        let topSpacer = UIView()
+        topSpacer.heightAnchor.constraint(equalToConstant: 47).isActive = true
+        
+        contentStackView.addArrangedSubview(topSpacer)
         contentStackView.addArrangedSubview(fireLabel)
         contentStackView.addArrangedSubview(resultLabel)
         
@@ -201,15 +207,31 @@ final class ResultScreenView: UIView {
             genresStackView.bottomAnchor.constraint(equalTo: genresScrollView.bottomAnchor)
         ])
         
-        
         contentStackView.addArrangedSubview(trackImageView)
         contentStackView.addArrangedSubview(trackView)
+        
+        NSLayoutConstraint.activate([
+            trackView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.2),
+            trackView.heightAnchor.constraint(equalToConstant: 98)
+        ])
         
         NSLayoutConstraint.activate([
             trackImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.95),
             trackImageView.heightAnchor.constraint(equalTo: trackImageView.widthAnchor)
         ])
 
+    }
+    
+    private func setCustomSpacing() {
+        contentStackView.setCustomSpacing(16, after: fireLabel)
+        contentStackView.setCustomSpacing(16, after: genresLabel)
+        contentStackView.setCustomSpacing(16, after: genresScrollView)
+        contentStackView.setCustomSpacing(-32, after: trackImageView)
+    }
+    
+    private func setupShazamMedia(shazamMedia: ShazamMedia) {
+        trackView.artistLabel.text = shazamMedia.artistName
+        trackView.trackLabel.text = shazamMedia.title
     }
     
 }

@@ -37,11 +37,11 @@ final class MainMapViewController: UIViewController {
     
     // MARK: - UIViewController
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
 //        let resultLabel = ResultScreenViewController()
 //        present(resultLabel, animated: true)
-//    }
+    }
     
     override func loadView() {
         view = mainView
@@ -66,6 +66,11 @@ final class MainMapViewController: UIViewController {
                 mainView.diskView.transform = CGAffineTransform(scaleX: deltaAffine, y: deltaAffine)
                 let middleSize = (maxHeight) * (deltaAffine - 0.6)
                 mainView.topContentViewConstraint.constant = view.frame.height - middleSize
+                
+                if animationPercent >= 0.99 {
+                    guard !shazamService.isRecording else { return }
+                    startShazamming()
+                }
             }
             
             guard touch.view == mainView.bottomInfoContainerView else { return }
@@ -100,7 +105,7 @@ final class MainMapViewController: UIViewController {
         getUserLocation()
         addChild(controller: bottomInfoViewVC, rootView: mainView.bottomInfoContainerView)
         shazamService.recordingStateChanged = { [weak self] isRecording in
-            let title = isRecording ? "RECORDING" : "SHAZAM"
+            let title = isRecording ? "RECORDING" : "NOT RECORDING"
             print(title)
         }
     }
@@ -113,6 +118,14 @@ final class MainMapViewController: UIViewController {
         }
         
         shazamService.detect { [weak self] result in
+            switch result {
+            case .success(let content):
+                let resultScreen = ResultScreenViewController(shazamMedia: content)
+                self?.present(resultScreen, animated: true)
+            case .failure(let error):
+                break
+            }
+            
             print(result)
         }
         

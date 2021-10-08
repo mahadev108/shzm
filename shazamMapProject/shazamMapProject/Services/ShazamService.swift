@@ -21,13 +21,6 @@ struct ShazamMedia: Decodable {
 }
 
 class ShazamService: NSObject, ObservableObject {
-    var shazamMedia =  ShazamMedia(
-        title: "Title...",
-        subtitle: "Subtitle...",
-        artistName: "Artist Name...",
-        albumArtURL: URL(string: "https://google.com"),
-        genres: ["Pop"]
-    )
     var isRecording = false {
         didSet { recordingStateChanged?(isRecording) }
     }

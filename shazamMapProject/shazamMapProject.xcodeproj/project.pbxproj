@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		61666C872710A97E00AD5CA8 /* ShazamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61666C862710A97D00AD5CA8 /* ShazamService.swift */; };
+		DA6418382710B2260066A486 /* ResultScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6418372710B2260066A486 /* ResultScreenView.swift */; };
+		DA64183C2710B23D0066A486 /* ResultScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA64183B2710B23D0066A486 /* ResultScreenVC.swift */; };
 		6173B6172710B25A005B0775 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6173B6162710B25A005B0775 /* Genre.swift */; };
 		6173B6192710B3A9005B0775 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6173B6182710B3A9005B0775 /* Place.swift */; };
 		6173B61B2710B81F005B0775 /* PlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6173B61A2710B81F005B0775 /* PlacesService.swift */; };
@@ -36,6 +38,8 @@
 		6173B6182710B3A9005B0775 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		6173B61A2710B81F005B0775 /* PlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesService.swift; sourceTree = "<group>"; };
 		6173B61C2710C9E5005B0775 /* GenresService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresService.swift; sourceTree = "<group>"; };
+		DA6418372710B2260066A486 /* ResultScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultScreenView.swift; sourceTree = "<group>"; };
+		DA64183B2710B23D0066A486 /* ResultScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultScreenVC.swift; sourceTree = "<group>"; };
 		DAD8441127104E2D00B1FFB9 /* shazamMapProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shazamMapProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD8441427104E2D00B1FFB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAD8441627104E2D00B1FFB9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +72,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA6418362710B1B60066A486 /* ResultScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DA6418392710B2290066A486 /* View */,
+				DA64183A2710B2300066A486 /* Controller */,
+			);
+			path = ResultScreen;
+			sourceTree = "<group>";
+		};
+		DA6418392710B2290066A486 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DA6418372710B2260066A486 /* ResultScreenView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DA64183A2710B2300066A486 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DA64183B2710B23D0066A486 /* ResultScreenVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		DAD8440827104E2D00B1FFB9 = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +195,7 @@
 		DAD8443827105EC100B1FFB9 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DA6418362710B1B60066A486 /* ResultScreen */,
 				DAD8442A27104E7300B1FFB9 /* MapScreen */,
 				DAD84443271072A500B1FFB9 /* BottomInfoScreen */,
 			);
@@ -299,10 +329,12 @@
 				6173B61B2710B81F005B0775 /* PlacesService.swift in Sources */,
 				DAD84446271072D100B1FFB9 /* BottomInfoScreenViewController.swift in Sources */,
 				DAD8444A27107D1500B1FFB9 /* MainMapView.swift in Sources */,
+				DA64183C2710B23D0066A486 /* ResultScreenVC.swift in Sources */,
 				DAD8443D27105FC100B1FFB9 /* ServiceLayer.swift in Sources */,
 				DAD8443727105AB100B1FFB9 /* MainMapModel.swift in Sources */,
 				6173B6172710B25A005B0775 /* Genre.swift in Sources */,
 				DAD8441527104E2D00B1FFB9 /* AppDelegate.swift in Sources */,
+				DA6418382710B2260066A486 /* ResultScreenView.swift in Sources */,
 				DAD8441727104E2D00B1FFB9 /* SceneDelegate.swift in Sources */,
 				DAD8443B27105EE300B1FFB9 /* LocationService.swift in Sources */,
 			);

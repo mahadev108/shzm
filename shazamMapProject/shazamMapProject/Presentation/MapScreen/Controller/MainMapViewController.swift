@@ -37,6 +37,12 @@ final class MainMapViewController: UIViewController {
     
     // MARK: - UIViewController
     
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        let resultLabel = ResultScreenViewController()
+//        present(resultLabel, animated: true)
+//    }
+    
     override func loadView() {
         view = mainView
     }
@@ -90,6 +96,7 @@ final class MainMapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mainView.setContraints()
         getUserLocation()
         addChild(controller: bottomInfoViewVC, rootView: mainView.bottomInfoContainerView)
         shazamService.recordingStateChanged = { [weak self] isRecording in

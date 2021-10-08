@@ -8,6 +8,11 @@
 import UIKit
 import MapKit
 
+enum MainScreenState {
+    case main
+    case loading
+    case result
+}
 
 final class MainMapViewController: UIViewController {
     
@@ -15,7 +20,9 @@ final class MainMapViewController: UIViewController {
     
     private let mainView = MainMapView()
     private let model = MainMapModel()
-    private let bottomInfoViewVC = BottomInfoScreenViewController()
+    
+    private let mainScreenVC = BottomInfoScreenViewController()
+    private let loadingScreen = LoadingScreenViewController()
     
     private var mapView: MKMapView {
         mainView.mapView
@@ -31,17 +38,16 @@ final class MainMapViewController: UIViewController {
     
     private let searchRadius: CLLocationDistance = 2000
     private let shazamService = ShazamService()
+    private var screenState = MainScreenState.main {
+        didSet {
+            
+        }
+    }
     
     private let minHight: CGFloat = 216
     private let maxHeight: CGFloat = UIScreen.main.bounds.height - 144
     
     // MARK: - UIViewController
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-//        let resultLabel = ResultScreenViewController()
-//        present(resultLabel, animated: true)
-    }
     
     override func loadView() {
         view = mainView
@@ -57,19 +63,32 @@ final class MainMapViewController: UIViewController {
             
             if touch.view == mainView.diskView {
                 let diskLeftPosition = abs(mainView.centerXDiskViewConstraint.constant)
-                let maxDeltaAffine: CGFloat = 0.6
+                let maxDeltaAffine: CGFloat = 0.5
                 let delta = 1 - abs(diskLeftPosition - view.frame.midX) / (view.frame.width * 0.5)
                 let deltaAffine = 1 + (maxDeltaAffine * delta)
-                let animationPercent = deltaAffine - 0.6
+                let animationPercent = deltaAffine - 0.5
                 
                 mainView.centerXDiskViewConstraint.constant += widthDelta
                 mainView.diskView.transform = CGAffineTransform(scaleX: deltaAffine, y: deltaAffine)
-                let middleSize = (maxHeight) * (deltaAffine - 0.6)
+                let middleSize = (maxHeight) * (deltaAffine - 0.5)
                 mainView.topContentViewConstraint.constant = view.frame.height - middleSize
+                
+                let newDiskYPosition: CGFloat = 380 * animationPercent
+                
+                mainView.centerYDiskViewConstraint.constant = newDiskYPosition
                 
                 if animationPercent >= 0.99 {
                     guard !shazamService.isRecording else { return }
+                    screenState = .loading
                     startShazamming()
+                }
+                
+                if animationPercent < 25 {
+                    mainScreenVC.view.alpha = 1 - animationPercent * 1.5
+                }
+                
+                if animationPercent > 25 {
+                    loadingScreen.view.alpha = 1.0
                 }
             }
             
@@ -79,8 +98,18 @@ final class MainMapViewController: UIViewController {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard screenState == .main else { return }
+                
         if let touch = touches.first {
-            guard touch.view == mainView.bottomInfoContainerView else { return }
+            
+            if touch.view == mainView.diskView {
+                mainView.centerXDiskViewConstraint.constant = 0
+                mainView.diskView.transform = .identity
+                mainScreenVC.view.alpha = 1.0
+            } else {
+                guard touch.view == mainView.bottomInfoContainerView else { return }
+            }
+            
             var newHeight = CGFloat()
             
             if mainView.topContentViewConstraint.constant < minHight {
@@ -91,10 +120,12 @@ final class MainMapViewController: UIViewController {
                 newHeight = maxHeight
             }
             
+            let diskAlpha = newHeight == maxHeight ? 1.0 : 0.0
             mainView.topContentViewConstraint.constant = newHeight
             
             UIView.animate(withDuration: 0.7, delay: 0.0, usingSpringWithDamping: 0.76, initialSpringVelocity: 2.5, options: .curveEaseInOut) {
                 self.view.layoutIfNeeded()
+                self.mainView.diskView.alpha = diskAlpha
             }
         }
     }
@@ -103,7 +134,9 @@ final class MainMapViewController: UIViewController {
         super.viewDidLoad()
         mainView.setContraints()
         getUserLocation()
-        addChild(controller: bottomInfoViewVC, rootView: mainView.bottomInfoContainerView)
+        addChild(controller: mainScreenVC, rootView: mainView.bottomInfoContainerView)
+        addChild(controller: loadingScreen, rootView: mainView.bottomInfoContainerView)
+//        loadingScreen.view.alpha = 0.0
         shazamService.recordingStateChanged = { [weak self] isRecording in
             let title = isRecording ? "RECORDING" : "NOT RECORDING"
             print(title)

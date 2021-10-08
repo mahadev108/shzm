@@ -127,6 +127,7 @@ final class ResultScreenView: UIView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = .orange
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -232,6 +233,7 @@ final class ResultScreenView: UIView {
     private func setupShazamMedia(shazamMedia: ShazamMedia) {
         trackView.artistLabel.text = shazamMedia.artistName
         trackView.trackLabel.text = shazamMedia.title
+        trackImageView.downloadImage(imageURL: shazamMedia.albumArtURL!)
     }
     
 }

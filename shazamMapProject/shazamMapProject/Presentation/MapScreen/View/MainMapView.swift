@@ -12,6 +12,7 @@ final class MainMapView: UIView {
     
     public var topContentViewConstraint = NSLayoutConstraint()
     public var centerXDiskViewConstraint = NSLayoutConstraint()
+    public var centerYDiskViewConstraint = NSLayoutConstraint()
     
     public let mapView: MKMapView = {
         let view = MKMapView()
@@ -56,10 +57,11 @@ final class MainMapView: UIView {
         ])
 
         centerXDiskViewConstraint = diskView.centerXAnchor.constraint(equalTo: bottomInfoContainerView.trailingAnchor)
-
+        centerYDiskViewConstraint = diskView.centerYAnchor.constraint(equalTo: bottomInfoContainerView.topAnchor)
+        
         NSLayoutConstraint.activate([
             centerXDiskViewConstraint,
-            diskView.centerYAnchor.constraint(equalTo: bottomInfoContainerView.topAnchor),
+            centerYDiskViewConstraint,
             diskView.widthAnchor.constraint(equalToConstant: 211),
             diskView.heightAnchor.constraint(equalToConstant: 211)
         ])

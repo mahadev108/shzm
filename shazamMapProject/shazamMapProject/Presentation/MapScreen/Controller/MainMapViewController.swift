@@ -23,13 +23,14 @@ final class MainMapViewController: UIViewController {
     
     private let locationService = ServiceLayer.locationService
     
-    private var currentLocation: CLLocation? {
+    private var currentLocation: CLLocation? = CLLocation(latitude: 0, longitude: 0) {
         didSet {
 //            searchInMap()
         }
     }
     
     private let searchRadius: CLLocationDistance = 2000
+    private let shazamService = ShazamService()
     
     private let minHight: CGFloat = 216
     private let maxHeight: CGFloat = UIScreen.main.bounds.height - 144
@@ -91,13 +92,30 @@ final class MainMapViewController: UIViewController {
         super.viewDidLoad()
         getUserLocation()
         addChild(controller: bottomInfoViewVC, rootView: mainView.bottomInfoContainerView)
+        shazamService.recordingStateChanged = { [weak self] isRecording in
+            let title = isRecording ? "RECORDING" : "SHAZAM"
+            self?.shazamButton.setTitle(title, for: .normal)
+        }
     }
-    
+
+
+    @IBAction func shazamButtonTapped(_ sender: Any) {
+        guard !shazamService.isRecording else {
+            shazamService.cancelDetection()
+            return
+        }
+
+        shazamService.detect { [weak self] result in
+            print(result)
+        }
+
+    }
+
     // MARK: - Private Methods
     
     private func getUserLocation() {
         locationService.run { [weak self] localLocation in
-            guard let self = self else { return }
+            guard let self = self, let localLocation = localLocation else { return }
             self.currentLocation = localLocation
             self.setupMap()
         }

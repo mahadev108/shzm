@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61666C852710596400AD5CA8 /* ShazamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61666C842710596400AD5CA8 /* ShazamService.swift */; };
 		DAD8441527104E2D00B1FFB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD8441427104E2D00B1FFB9 /* AppDelegate.swift */; };
 		DAD8441727104E2D00B1FFB9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD8441627104E2D00B1FFB9 /* SceneDelegate.swift */; };
 		DAD8441E27104E3000B1FFB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAD8441D27104E3000B1FFB9 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		61666C842710596400AD5CA8 /* ShazamService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamService.swift; sourceTree = "<group>"; };
 		1E35F2870E47E7C70A7443E6 /* Pods-shazamMapProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shazamMapProject.release.xcconfig"; path = "Target Support Files/Pods-shazamMapProject/Pods-shazamMapProject.release.xcconfig"; sourceTree = "<group>"; };
 		83A823040939844E6A35C2D4 /* Pods-shazamMapProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shazamMapProject.debug.xcconfig"; path = "Target Support Files/Pods-shazamMapProject/Pods-shazamMapProject.debug.xcconfig"; sourceTree = "<group>"; };
 		88DD11F78BDD6D5881F64163 /* Pods_shazamMapProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shazamMapProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +65,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		61666C832710584800AD5CA8 /* Shazam */ = {
+			isa = PBXGroup;
+			children = (
+				61666C842710596400AD5CA8 /* ShazamService.swift */,
+			);
+			path = Shazam;
 		8257B45E2D768ADB3A663C7D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +101,7 @@
 		DAD8441327104E2D00B1FFB9 /* shazamMapProject */ = {
 			isa = PBXGroup;
 			children = (
+				61666C832710584800AD5CA8 /* Shazam */,
 				DAD8442B27104EF700B1FFB9 /* Launch */,
 				DAD8443927105ECA00B1FFB9 /* Services */,
 				DAD8443827105EC100B1FFB9 /* Presentation */,
@@ -344,6 +353,7 @@
 				DAD8443727105AB100B1FFB9 /* MainMapModel.swift in Sources */,
 				DAD8441527104E2D00B1FFB9 /* AppDelegate.swift in Sources */,
 				DAD8441727104E2D00B1FFB9 /* SceneDelegate.swift in Sources */,
+				61666C852710596400AD5CA8 /* ShazamService.swift in Sources */,
 				DAD8443B27105EE300B1FFB9 /* LocationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

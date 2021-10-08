@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainMapViewController" customModule="shazamMapProject" customModuleProvider="target">
             <connections>
                 <outlet property="mapView" destination="QbH-fv-PT5" id="qOx-Hc-Q20"/>
+                <outlet property="shazamButton" destination="lek-9v-3aO" id="ecF-4g-5NI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,6 +23,14 @@
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="QbH-fv-PT5" userLabel="MapView">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 </mapView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lek-9v-3aO">
+                    <rect key="frame" x="169" y="741" width="76" height="31"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Shazam"/>
+                    <connections>
+                        <action selector="shazamButtonTapped:" destination="-1" eventType="touchUpInside" id="yOa-T9-0lp"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -29,6 +38,8 @@
                 <constraint firstAttribute="bottom" secondItem="QbH-fv-PT5" secondAttribute="bottom" id="7Pi-A7-ehc"/>
                 <constraint firstItem="QbH-fv-PT5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="BRP-HA-Swr"/>
                 <constraint firstItem="QbH-fv-PT5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Cf1-FC-lbm"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="lek-9v-3aO" secondAttribute="bottom" constant="90" id="NHE-tb-ITs"/>
+                <constraint firstItem="lek-9v-3aO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ehb-zF-TJz"/>
                 <constraint firstAttribute="trailing" secondItem="QbH-fv-PT5" secondAttribute="trailing" id="si3-zP-Yqw"/>
             </constraints>
             <point key="canvasLocation" x="139" y="114"/>

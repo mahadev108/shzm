@@ -7,6 +7,8 @@
 		<string>PragmaticaExtendedBook.otf</string>
 		<string>PragmaticaExtendedBold.otf</string>
 	</array>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>To detect music with Shazam</string>
 	<key>MKDirectionsApplicationSupportedModes</key>
 	<array/>
 	<key>UIApplicationSceneManifest</key>
